@@ -1,0 +1,9 @@
+APIKey.txt
+clientID.txt
+clientSecret.txt
+AudioFeatures.py
+test.py
+main.py
+/venv/
+/data/
+/.idea/
