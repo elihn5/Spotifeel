@@ -11,6 +11,12 @@ except FileNotFoundError:
 		clientsecrettext = open("clientSecret.txt","w+")
 clientSecret = clientsecrettext.read()
 clientsecrettext.close()
+
+try: redirectURItext = open("redirectURI.txt","r+")
+except FileNotFoundError:
+		redirectURItext = open("redirectURI.txt","w+")
+redirectURI = redirectURItext.read()
+redirectURItext.close()
 def AccessToken(OauthCode):
 	client = clientID + ":" + clientSecret
 	client_encode = client.encode('ascii')
@@ -20,7 +26,7 @@ def AccessToken(OauthCode):
 	response = requests.post("https://accounts.spotify.com/api/token", data={
 		"grant_type":"authorization_code",
 		"code":OauthCode,
-		"redirect_uri":"http://localhost:8000/"
+		"redirect_uri":redirectURI
 		},
 		headers={
 			'Content-Type': 'application/x-www-form-urlencoded',
