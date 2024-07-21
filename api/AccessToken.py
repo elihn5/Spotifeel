@@ -1,20 +1,20 @@
 import requests
 import base64
-try: clientIDtext = open("clientID.txt","r+")
+try: clientIDtext = open("../clientID.txt", "r+")
 except FileNotFoundError:
-		clientIDtext = open("clientID.txt","w+")
+		clientIDtext = open("../clientID.txt", "w+")
 clientID = clientIDtext.read()
 clientIDtext.close()
 
-try: clientsecrettext = open("clientSecret.txt","r+")
+try: clientsecrettext = open("../clientSecret.txt", "r+")
 except FileNotFoundError:
-		clientsecrettext = open("clientSecret.txt","w+")
+		clientsecrettext = open("../clientSecret.txt", "w+")
 clientSecret = clientsecrettext.read()
 clientsecrettext.close()
 
-try: redirectURItext = open("redirectURI.txt","r+")
+try: redirectURItext = open("../redirectURI.txt", "r+")
 except FileNotFoundError:
-		redirectURItext = open("redirectURI.txt","w+")
+		redirectURItext = open("../redirectURI.txt", "w+")
 redirectURI = redirectURItext.read()
 redirectURItext.close()
 def GetAccessToken(OauthCode):

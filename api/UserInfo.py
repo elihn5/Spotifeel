@@ -3,20 +3,20 @@ import requests
 # INPUT: a user's OAuth key
 # OUTPUT: the URIs of their top 25 songs over the last month
 def GetUserTopTracks(AccessToken):
-	# loading the API key from the API txt file
-	APIText = open("APIKey.txt", "r+")
+	# loading the api key from the api txt file
+	APIText = open("../APIKey.txt", "r+")
 	APIKey = APIText.read()
 	APIText.close()
 
-	clientIDtext = open("clientID.txt", "r+")
+	clientIDtext = open("../clientID.txt", "r+")
 	clientID = clientIDtext.read()
 	clientIDtext.close()
 
-	clientsecrettext = open("clientSecret.txt", "r+")
+	clientsecrettext = open("../clientSecret.txt", "r+")
 	clientSecret = clientsecrettext.read()
 	clientsecrettext.close()
 
-	# prompting spotify API for the track info
+	# prompting spotify api for the track info
 	response = requests.get(
 		"https://api.spotify.com/v1/me/top/tracks?time-range=short_term&limit=25",
 		headers={
@@ -39,7 +39,7 @@ def GetUserTopTracks(AccessToken):
 		}
 	)
 
-	APIText = open("APIKey.txt", "w")
+	APIText = open("../APIKey.txt", "w")
 	# if the APIkey worked, APIkey.txt is updated with the working APIkey just in case
 	# if the APIkey didnt work, spotify is polled for a new one, APIkey.txt is updated with the new one, and the request is sent again
 	if AFResponse.status_code == 200:
