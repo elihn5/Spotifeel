@@ -1,9 +1,8 @@
 import requests
-import csv
 
 # INPUT: a user's OAuth key
 # OUTPUT: the URIs of their top 25 songs over the last month
-def UsertopTracks(AccessToken):
+def GetUserTopTracks(AccessToken):
 	# loading the API key from the API txt file
 	APIText = open("APIKey.txt", "r+")
 	APIKey = APIText.read()
@@ -78,3 +77,14 @@ def UsertopTracks(AccessToken):
 		}
 		DictList.append(song_dict)
 	return DictList
+
+def GetUsername(AccessToken):
+	# INPUT: Access Token
+	# OUTPUT: Username of currently active user
+	response = requests.get(
+		"https://api.spotify.com/v1/me/top/tracks?time-range=short_term&limit=25",
+		headers={
+			"Authorization": "Bearer " + AccessToken
+		}
+	)
+	return response

@@ -17,7 +17,7 @@ except FileNotFoundError:
 		redirectURItext = open("redirectURI.txt","w+")
 redirectURI = redirectURItext.read()
 redirectURItext.close()
-def AccessToken(OauthCode):
+def GetAccessToken(OauthCode):
 	client = clientID + ":" + clientSecret
 	client_encode = client.encode('ascii')
 	client_bytes = base64.b64encode(client_encode)
