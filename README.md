@@ -22,4 +22,4 @@ It only gathers audio feature data for the user's top 25 tracks over the past mo
 
 ## ROADMAP
 
-Currently, this code is a work-in-progress. Further updates will add integration with Qualtrics, and make the redirect URI more flexible. A final version can be expected by July 25th. 
+More features are still to be added! The next update will add a config.yml file, so that the code can be more easily modified.
